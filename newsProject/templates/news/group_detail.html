@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <p style="font-size: 30px;">Group Title: {{ group.title }}</p>
+        <p style="font-size: 30px;">Group Subject: {{ group.subject }}</p>
+        <p style="font-size: 30px;">Tutor: {{ group.tutor_fullname }}</p>
+    </div>
+    {% if user.is_authenticated %}
+        <div style="display: flex;">
+            <p><a style="color: rgb(217, 148, 21); font-size: 25px;" href="{% url 'group_edit' group.pk %}">Edit Group</a></p>
+            <p style="margin: 18px 10px; font-size: 25px;">|</p>
+            <p><a style="color: rgb(4, 158, 28); font-size: 25px;" href="{% url 'students' %}">Group Students</a></p>
+            <p style="margin: 18px 10px; font-size: 25px;">|</p>
+            <p><a style="color: rgb(217, 24, 21); font-size: 25px;" href="{% url 'group_delete' group.pk %}">Delete Group</a></p>
+        </div>
+    {% endif %}
+{% endblock content %}

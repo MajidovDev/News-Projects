@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div style="display: flex; justify-content: space-evenly;">
+        <div>
+            <div>
+                <p style="font-size: 30px;">Group Title: {{ group.title }}</p>
+                <p style="font-size: 30px;">Group Subject: {{ group.subject }}</p>
+                <p style="font-size: 30px;">Tutor: {{ group.tutor_fullname }}</p>
+            </div>
+            {% if user.is_authenticated %}
+                <p><a style="color: rgb(4, 158, 28); font-size: 25px;" href="{% url 'student_new' %}">Add Student</a></p>
+            {% endif %}
+        </div>
+        <section style="margin-top: 30px;">
+            <table id="customers">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Name</td>
+                        <td>Surname</td>
+                        <td>Phone Number</td>
+                        <td>Group</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in object_list %}
+                        <tr>
+                            <td><a href="{% url 'student_detail' student.pk %}">{{ student.pk }}</a></td>
+                            <td><a href="{% url 'student_detail' student.pk %}">{{ student.name }}</a></td>
+                            <td><a href="{% url 'student_detail' student.pk %}">{{ student.surname }}</a></td>
+                            <td><a href="{% url 'student_detail' student.pk %}">{{ student.phone }}</a></td>
+                            <td><a href="{% url 'student_detail' student.pk %}">{{ student.group }}</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+{% endblock content %}
