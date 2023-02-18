@@ -1,8 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-    <form action="" method="post">{% csrf_token %}
-        <p>Delete the group "{{ group.title }}" ?</p>
-        <input type="submit" value="Delete">
-    </form>
-{% endblock content %}

@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-    <h2 style="color: rgb(12, 68, 251)">Creating New Group</h2>
-    <form action="" method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn-save" type="submit" value="Save">
-    </form>
-{% endblock content %}
